@@ -12,7 +12,7 @@ app.use(cors({ origin: "http://localhost:5173" }));
 app.use(cors({ origin: "https://ys-dev.netlify.app" }));
 app.use(express.json());
 
-app.get("/api/checkout", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Welcome")
 })
 
