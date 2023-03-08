@@ -1,6 +1,6 @@
 export default {
     name: 'order',
-    title: 'Product',
+    title: 'Order',
     type: 'document',
     fields: [
      {
