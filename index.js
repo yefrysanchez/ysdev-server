@@ -9,7 +9,7 @@ const stripe = new Stripe(
 );
 
 
-app.use(cors({ origin: "https://ys-dev.netlify.app" }));
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
