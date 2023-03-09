@@ -1,25 +1,21 @@
 const express = require('express')
 const Stripe = require('stripe')
 const cors = require('cors')
-
 const app = express();
-
 const stripe = new Stripe(
   "sk_test_51MilnCJaoef1BX1CozAuYDUOfS5ZvhzuuePHGvpEteRx16v3CayYW8w0v7vNDSITBU1FBENRNVBzE6NbZe8ArlQ700Na5MndKt"
 );
 
-
-app.use(cors({ origin: "https://ys-dev.netlify.app/checkout" }));
+app.use(cors())
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api/checkout", (req, res) => {
   res.send("Welcome")
 })
 
 app.post("/api/checkout", async (req, res) => {
   try {
     const { id, amount } = req.body;
-
     const payment = await stripe.paymentIntents.create({
       amount,
       currency: "USD",
@@ -27,14 +23,12 @@ app.post("/api/checkout", async (req, res) => {
       payment_method: id,
       confirm: true,
     });
-
     res.send({ message: "Successful payment" });
   } catch (error) {
     console.log(error);
     res.json({ message: error.raw.message });
   }
 });
-
 app.listen(3000, () => {
   console.log("init server on server 3000");
 });
