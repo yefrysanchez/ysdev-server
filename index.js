@@ -8,7 +8,7 @@ const stripe = new Stripe(
   "sk_test_51MilnCJaoef1BX1CozAuYDUOfS5ZvhzuuePHGvpEteRx16v3CayYW8w0v7vNDSITBU1FBENRNVBzE6NbZe8ArlQ700Na5MndKt"
 );
 
-app.use(cors({ origin: "http://localhost:5173" }));
+
 app.use(cors({ origin: "https://ys-dev.netlify.app" }));
 app.use(express.json());
 
