@@ -9,8 +9,8 @@ const stripe = new Stripe(
 );
 
 
+app.use(cors({ origin: "https://ys-dev.netlify.app/checkout" }));
 app.use(express.json());
-app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Welcome")
